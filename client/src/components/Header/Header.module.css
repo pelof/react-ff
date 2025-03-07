@@ -1,0 +1,124 @@
+/* Generellt: */
+
+ul {
+    color: black;
+    list-style: none;
+}
+
+.icon {
+    font-size: 1.5rem;
+    color: black;
+  }
+
+
+/* TODO: se till att i, a selektorer funkar för nya versionen */
+
+.headerContent {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.headerContent img {
+    width: 100%;
+    padding: 10px;
+}
+.headerContent > div {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+/* Ikonlänkarna. Sätter färg till förälderns, sätter lite
+mellanrum mellan dom och tar bort understrecket. */
+.headerIcons{
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+
+}
+.headerIcons a {
+    color: inherit;
+    margin: 10px;
+    text-decoration: none;
+}
+
+/* Ikonbilderna */
+.headerIcons i {
+    font-size: 2rem;
+}
+
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+.searchBar {
+    position: relative;
+    margin: 20px;
+    width: 100%;
+}
+
+.searchBar input {
+    padding: 8px 12px;
+    padding-left: 40px; /* Utrymme för ikonen till vänster */
+    border: 2px solid black;
+    border-radius: 20px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.searchBar .searchIcon {
+    position: absolute;
+    left: 10px; /* Placera ikonen 10px från vänsterkanten */
+    top: 50%;
+    transform: translateY(-50%); /* Vertikal centrering av ikonen */
+    width: 20px;
+    height: 25px;
+    pointer-events: none; /* Förhindra att ikonen är klickbar */
+}
+
+.navLinks{
+    display: flex;
+    flex-direction: column;
+}
+
+ .navLinks a, .navLinks ul {
+    color: black;
+    text-decoration: none;
+    list-style: none;
+    font-size: 1.3rem;
+}
+.navLinks a:hover {
+    text-decoration: underline;
+}
+
+.search-info {
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 640px) {
+    .navLinks {
+        flex-direction: row;
+     }
+     .navLinks a, .navLinks ul {
+        margin-right: 10px;
+        font-size: 1rem;
+        padding: 10px;
+     }
+     .headerContent {
+        flex-direction: row;
+    }
+    .headerIcons i {
+        font-size: 1.5rem;
+    }
+    .searchBar input {
+        font-size: 0.8rem;
+        max-width: 390px;
+    }
+
+
+}
