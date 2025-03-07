@@ -1,9 +1,9 @@
 import Header from "../../components/Header/Header";
-import Hero from "../../components/Hero/Hero";
 
 function Home() {
   return (
     <>
+      <Header></Header>
       <h1>Home</h1>
     </>
   );
