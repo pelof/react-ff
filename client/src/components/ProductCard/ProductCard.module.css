@@ -172,6 +172,32 @@
     font-size: 2rem;
 }
 
+.heartIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #000;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.heartIcon:hover {
+    transform: scale(1.1);
+    color: red; /* Gör hjärtat rött vid hover */
+}
+
+.nyhet {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.3rem;
+    background-color: black;
+    color: white;
+    border-radius: 30px;
+    padding: 5px 10px;
+}
+
 .brandname {
     font-size: 1.2rem;
     color: rgb(97, 97, 97);
@@ -187,17 +213,16 @@
 }
 
 /* Gör inget? */
-.productImg div {
+/* .productImg div {
     position: absolute;
     top: 15px;
     left: 15px;
     font-size: 1.3rem;
-    color: white;
-    background-color: black;
+    color: black;
     border-radius: 30px;
     padding: 10px;
     width: auto;
-}
+} */
 
 .productImg .bi-heart-fill, .productCard .bi-heart, .product-detail-content-image .bi-heart {
     position: absolute;

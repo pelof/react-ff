@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import styles from "./ProductCard.module.css";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 
 export default function ProductCard({ product }) {
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const toggleFavorite = (event) => {
+    event.preventDefault();
+    setIsFavorited(!isFavorited);
+  }
+
   const publishedDate = new Date(product.product_published);
   const currentDate = new Date();
   const diffDays = (currentDate - publishedDate) / (1000 * 60 * 60 * 24); // Beräknar dagar sedan publicering
@@ -9,13 +18,20 @@ export default function ProductCard({ product }) {
   return (
     <article className={styles.productCard}>
       <Link to={`/products/${product.product_slug}`}>
-        <div className={styles.produktImg}>
-          <img src={product.product_image} alt={product.product_name} />
-          <i className="bi bi-heart"></i>
+        <div className={styles.productImg}>
+          <img src={product.product_image} alt={product.product_name}/>
+          <div className={styles.heartIcon} onClick={toggleFavorite}>
+            {isFavorited ? (
+              <HeartFill className="bi bi-heart-fill" />
+            ) : (
+              <Heart className="bi bi-heart" />
+            )}
+          </div>
 
-          {diffDays <= 7 && <div className={styles.nyhet}>Nyhet</div>} 
+          {diffDays <= 7 && <div className={styles.nyhet}>Nyhet</div>}
         </div>
-        <div>
+        
+        <div className={styles.productCardInfo}>
           <h2>{product.product_name}</h2>
           {product.product_price} kr
         </div>
