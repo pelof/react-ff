@@ -5,19 +5,25 @@ ul {
     list-style: none;
 }
 
+.icon {
+    font-size: 1.5rem;
+    color: black;
+  }
 
 
-.header-content {
+/* TODO: se till att i, a selektorer funkar för nya versionen */
+
+.headerContent {
     display: flex;
     flex-direction: column;
     width: 100%;
 }
 
-.header-content img {
+.headerContent img {
     width: 100%;
     padding: 10px;
 }
-.header-content > div {
+.headerContent > div {
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -26,40 +32,45 @@ ul {
 }
 /* Ikonlänkarna. Sätter färg till förälderns, sätter lite
 mellanrum mellan dom och tar bort understrecket. */
-.header-icons{
+.headerIcons{
     display: flex;
     flex-direction: row;
     padding-right: 20px;
 
 }
-.header-icons a {
+.headerIcons a {
     color: inherit;
     margin: 10px;
     text-decoration: none;
 }
 
 /* Ikonbilderna */
-.header-icons i {
+.headerIcons i {
     font-size: 2rem;
 }
 
-.search-bar {
+.searchContainer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+.searchBar {
     position: relative;
     margin: 20px;
     width: 100%;
 }
 
-.search-bar input {
+.searchBar input {
     padding: 8px 12px;
     padding-left: 40px; /* Utrymme för ikonen till vänster */
     border: 2px solid black;
     border-radius: 20px;
     font-size: 1rem;
     width: 100%;
-
 }
 
-.search-bar .bi-search{
+.searchBar .searchIcon {
     position: absolute;
     left: 10px; /* Placera ikonen 10px från vänsterkanten */
     top: 50%;
@@ -69,18 +80,18 @@ mellanrum mellan dom och tar bort understrecket. */
     pointer-events: none; /* Förhindra att ikonen är klickbar */
 }
 
-.nav-links{
+.navLinks{
     display: flex;
     flex-direction: column;
 }
 
- .nav-links a, .nav-links ul {
+ .navLinks a, .navLinks ul {
     color: black;
     text-decoration: none;
     list-style: none;
     font-size: 1.3rem;
 }
-.nav-links a:hover {
+.navLinks a:hover {
     text-decoration: underline;
 }
 
@@ -90,21 +101,21 @@ mellanrum mellan dom och tar bort understrecket. */
 }
 
 @media (min-width: 640px) {
-    .nav-links {
+    .navLinks {
         flex-direction: row;
      }
-     .nav-links a, .nav-links ul {
+     .navLinks a, .navLinks ul {
         margin-right: 10px;
         font-size: 1rem;
         padding: 10px;
      }
-     .header-content {
+     .headerContent {
         flex-direction: row;
     }
-    .header-icons i {
+    .headerIcons i {
         font-size: 1.5rem;
     }
-    .search-bar input {
+    .searchBar input {
         font-size: 0.8rem;
         max-width: 390px;
     }

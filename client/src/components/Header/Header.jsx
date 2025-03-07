@@ -1,23 +1,23 @@
-import "./Header.css";
-import {Search} from 'react-bootstrap-icons';
-
+import styles from "./Header.module.css";
+import { Search, BagFill, HeartFill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
+import Freaky_Fashion_logo from "../../assets/Freaky_Fashion_logo.png";
 
 export default function Header() {
   return (
     <>
       <header>
-        <div class="header-content">
+        <div className={styles.headerContent}>
           {/* <!-- Logotyp --> */}
-          {/* TODO: Link istället? */}
-          <a href="/">
-            <img src="src/assets/Freaky_Fashion_logo.png" alt="Logotyp" />
-          </a>
+          <Link to="/">
+            <img src={Freaky_Fashion_logo} alt="Logotyp" />
+          </Link>
 
           {/* <!-- Sökruta, syftet med aria-label är för att ge info till skärmläsare --> */}
-          <div>
+          <div className={styles.searchContainer}>
             {/* <!-- anropet skickas till /search --> */}
             <form
-              class="search-bar"
+              className={styles.searchBar}
               id="search-bar"
               action="/search"
               method="get"
@@ -28,35 +28,37 @@ export default function Header() {
                 placeholder="Sök produkter..."
                 aria-label="Sök produkter"
               />
-              <i class="bi bi-search"><Search></Search></i>
+              <Search className={styles.searchIcon} />{" "}
             </form>
 
             {/* <!-- Ikoner för favoriter och varukorg --> */}
-            <div class="header-icons">
-              <a href="/" aria-label="Favoriter">
-                <i class="bi bi-heart-fill"></i>
-              </a>
-              <a href="/checkout" aria-label="Varukorg">
-                <i class="bi bi-bag-fill"></i>
-              </a>
+            <div className={styles.headerIcons}>
+              <Link to="/" aria-label="Favoriter">
+              <HeartFill className={styles.icon} />
+
+              </Link>
+              <Link to="/checkout" aria-label="Varukorg">
+              <BagFill className={styles.icon} />
+
+              </Link>
             </div>
           </div>
         </div>
 
         {/* <!-- Kategorier --> */}
         <nav>
-          <ul class="nav-links">
+          <ul className={styles.navLinks}>
             <li>
-              <a href="/nyheter">Nyheter</a>
+              <Link to="/nyheter">Nyheter</Link>
             </li>
             <li>
-              <a href="/topplistan">Topplistan</a>
+              <Link to="/topplistan">Topplistan</Link>
             </li>
             <li>
-              <a href="/rea">Rea</a>
+              <Link to="/rea">Rea</Link>
             </li>
             <li>
-              <a href="/kampanjer">Kampanjer</a>
+              <Link to="/kampanjer">Kampanjer</Link>
             </li>
           </ul>
         </nav>
