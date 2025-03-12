@@ -1,0 +1,57 @@
+/* .spots {
+    display: none;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 10px;
+    padding: 10px;
+    margin: 20px;
+}
+.spots a {
+    position: relative; */
+    /*samma som bilden */
+    /* width: 100%; 
+}
+*/
+
+.spots {
+    display: none;
+    gap: 16px; 
+    justify-content: center;
+    padding: 10px;
+    margin: 18px;
+}
+
+.spots div {
+    text-align: center;
+    position: relative;
+}
+
+.spots img {
+    width: 100%;
+    display: block;
+
+}
+.spotText {
+    position: absolute;
+    top: -42%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 8px;  
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 47%; 
+    text-align: center;
+}
+
+@media (min-width: 1024px){
+
+    .spots{
+        display: flex;
+    }
+} 
