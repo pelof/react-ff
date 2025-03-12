@@ -22,9 +22,9 @@ export default function ProductCard({ product }) {
           <img src={product.product_image} alt={product.product_name}/>
           <div className={styles.heartIcon} onClick={toggleFavorite}>
             {isFavorited ? (
-              <HeartFill className="bi bi-heart-fill" />
+              <HeartFill/>
             ) : (
-              <Heart className="bi bi-heart" />
+              <Heart/>
             )}
           </div>
 

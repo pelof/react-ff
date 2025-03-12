@@ -1,147 +1,3 @@
-/* .produktkort {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 10px;
-    margin: 20px;
-}
-
-.produktkort > article a:first-child {
-    text-decoration: none;
-    color: black;
-} */
-
-/* Med hjälp av den här kan ikonerna positioneras relativt till bilden */
-/* .produkt-img{
-    position: relative;
-}
-
-.produkt-img a {
-    color: #000;
-}
-
-.produkt-img div{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 1.3rem;
-    color: white;
-    background-color: black;
-    border-radius: 30px;
-    padding: 10px;
-    width: auto;
-}
-
-.produkt-img .bi-heart-fill, .produktkort .bi-heart, .product-detail-content-image .bi-heart{
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
-    font-size: 3rem;
-} */
-
-/* Enkel animation enklare med transition */
-/* .bi-heart-fill {
-    transition: transform 1s ease;
-    transform: scale(1);
-}
-
-.bi-heart-fill:hover {
-    transform: scale(0.8);
-}
-
-.bi-heart:hover {
-    animation-name: heart-pump;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-}
-
-@keyframes heart-pump {
-    0%, 100%{
-        scale: 1;}
-        15%,40% {
-            scale: 1.2;
-        }
-       28% {scale: 1;
-    }
-    }
- */
-
-/*Individuella produktkort, flex column så att texten hamnar under bilden*/
-/* .produktkort > article {
-    padding: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-    transition: box-shadow 230ms ease-in-out;
-    display: flex; 
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.produktkort > article:hover {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-} */
-
-/*Endast bilderna*/
-/* .produktkort img{
-    width: 100%;
-    aspect-ratio: 600 / 700; 
-    object-fit: cover; 
-} */
-/* text i separata produktkort, så att texten sprids ut på rad */
-/* .produktkort > article div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} */
-/* Produktnamn och pris. behöver kunnas skalas upp */
-/* .produktkort h2 {
-    font-size: 2rem;
-} */
-/* levis */
-/* .brandname{
-    font-size: 1.2rem;
-    color: rgb(97, 97, 97);
-}
-
-@media (min-width: 640px) {
-
-    .produktkort{
-        grid-template-columns: 1fr 1fr;
-     }
-     .produktkort h2 {
-        font-size: 1.5rem;
-    }
-    .brandname{
-        font-size: 0.9rem;
-    }
-
-    .produkt-img div{
-        font-size: 1.1rem;
-        width: auto;
-    }
-    
-    .produkt-img .bi-heart-fill, .produktkort .bi-heart{
-        font-size: 2rem;
-    }
-
-
-}
-
-@media (min-width: 1024px){
-    .produktkort {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-    .produkt-img p{
-        font-size: 1rem;
-        width: 55px;
-    }
-    
-    .produkt-img .bi-heart-fill, .produktkort .bi-heart{
-        font-size: 1.2rem;
-        right: 15px;
-    }
-
-} */
 
 .productCard {
     padding: 10px;
@@ -182,9 +38,13 @@
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
+
 .heartIcon:hover {
     transform: scale(1.1);
     color: red; /* Gör hjärtat rött vid hover */
+    animation-name: heart-pump;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
 }
 
 .nyhet {
@@ -212,39 +72,6 @@
     color: #000;
 }
 
-/* Gör inget? */
-/* .productImg div {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 1.3rem;
-    color: black;
-    border-radius: 30px;
-    padding: 10px;
-    width: auto;
-} */
-
-.productImg .bi-heart-fill, .productCard .bi-heart, .product-detail-content-image .bi-heart {
-    position: absolute;
-    bottom: 5px;
-    right: 20px;
-    font-size: 3rem;
-}
-
-.bi-heart-fill {
-    transition: transform 1s ease;
-    transform: scale(1);
-}
-
-.bi-heart-fill:hover {
-    transform: scale(0.8);
-}
-
-.bi-heart:hover {
-    animation-name: heart-pump;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-}
 
 @keyframes heart-pump {
     0%, 100% {
@@ -270,8 +97,11 @@
         font-size: 1.1rem;
     }
     
-    .productImg .bi-heart-fill, .productCard .bi-heart {
-        font-size: 2rem;
+    .heartIcon {
+        font-size: 2rem !important;
+    }
+    .nyhet {
+        font-size: 1.5rem;
     }
 }
 
@@ -279,10 +109,5 @@
     .productImg p {
         font-size: 1rem;
         width: 55px;
-    }
-    
-    .productImg .bi-heart-fill, .productCard .bi-heart {
-        font-size: 1.2rem;
-        right: 15px;
     }
 }
