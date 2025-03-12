@@ -54,6 +54,8 @@
     padding-bottom: 40px;
 }
 
+
+
 .container {
     width: 100%;
     margin: 0px;
@@ -141,7 +143,7 @@
     .accordion {
         display: none;
     }
-    .footer-links {
+    .footerLinks {
         display: flex;
     }
     .footer .copyright {
@@ -150,6 +152,10 @@
     .promise {
         grid-template-columns: 1fr 1fr;
      }
+
+     .accordionContainer {
+        display: none;
+        }
 
 }
  /* Över 1294px */
