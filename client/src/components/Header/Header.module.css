@@ -21,7 +21,6 @@ ul {
 
 .headerContent img {
     width: 100%;
-    padding: 10px;
 }
 .headerContent > div {
     display: flex;
@@ -111,6 +110,7 @@ mellanrum mellan dom och tar bort understrecket. */
      }
      .headerContent {
         flex-direction: row;
+        padding: 10px;
     }
     .headerIcons i {
         font-size: 1.5rem;

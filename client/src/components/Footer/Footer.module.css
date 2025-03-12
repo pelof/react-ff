@@ -1,0 +1,79 @@
+.promise {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.promise li {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Centrerar text bredvid ikonerna */
+.promise div {
+  margin: auto 0;
+}
+
+.promiseIcon {
+  font-size: 3em;
+  margin: 10px;
+}
+
+.footerLinks {
+  display: none;
+  background-color: lightgrey;
+  gap: 90px;
+  padding: 20px;
+  border-top: solid black;
+}
+
+.footerLinks li {
+  padding-bottom: 10px;
+}
+
+.footerLinks a {
+  color: black;
+  text-decoration: none;
+  /* Så inte Mina sidor osv blir två rader: */
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+  color: #ff6600;
+  
+}
+
+.copyright {
+  display: none;
+  text-align: center;
+  background-color: lightgrey;
+  padding-bottom: 40px;
+}
+
+@media (min-width: 640px) {
+
+  .footerLinks {
+    display: flex;
+}
+  .copyright {
+    display: block;
+  }
+  .promise {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .accordionContainer {
+    display: none;
+  }
+  .copyright {
+    display: block;
+  }
+}
+/* Över 1294px */
+@media (min-width: 1295px) {
+  .promise {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
