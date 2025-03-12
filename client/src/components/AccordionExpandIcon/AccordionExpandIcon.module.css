@@ -1,8 +1,31 @@
-.accordionLink {
-    text-decoration: none;
-    color: black;
+
+
+.accordionCopyright {
+    display: block;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.1rem;
 }
 
+/* Standard Accordion-stil */
 .accordionSummary {
-    background-color: white;
+  background-color: #f5f5f5 !important;
+  transition: background-color 0.3s ease;
+}
+
+/* När en panel är öppen */
+.activeAccordion {
+  background-color: #83aef3 !important; /* Ändra färg på expanderad panel */
+  font-weight: bold;
+}
+
+/* Länkstil */
+.accordionLink {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.accordionLink:hover {
+  color: #ff6600;
 }

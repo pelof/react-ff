@@ -8,11 +8,22 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link } from 'react-router-dom';
 import styles from "./AccordionExpandIcon.module.css"
 // TODO gör så bara en kan vara uppe i taget, plus den aktiva ska byta färg. https://mui.com/material-ui/react-accordion/
+
+
 export default function AccordionExpandIcon() {
+  //Håller koll på öppen panel:
+  const [expanded, setExpanded] = React.useState(null);
+
+  //Hanterar expandering
+  const handleChange = (panel) => (event, isExpanded) => {
+  setExpanded(isExpanded ? panel : null);
+  };
+
   return (
     <div>
-      <Accordion>
-        <AccordionSummary className={styles.accordionSummary}
+      <Accordion expanded={expanded ==='panel1'} onChange={handleChange('panel1')}>
+      <AccordionSummary
+          className={expanded === 'panel1' ? styles.activeAccordion : styles.accordionSummary}
           expandIcon={<ArrowDropDownIcon />}
           aria-controls="panel1-content"
           id="panel1-header"
@@ -34,8 +45,9 @@ export default function AccordionExpandIcon() {
             </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
         <AccordionSummary
+          className={expanded === 'panel2' ? styles.activeAccordion : styles.accordionSummary}
           expandIcon={<ArrowDropDownIcon />}
           aria-controls="panel2-content"
           id="panel2-header"
@@ -51,11 +63,12 @@ export default function AccordionExpandIcon() {
             </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
         <AccordionSummary
+          className={expanded === 'panel3' ? styles.activeAccordion : styles.accordionSummary}
           expandIcon={<ArrowDropDownIcon />}
-          aria-controls="panel2-content"
-          id="panel2-header"
+          aria-controls="panel3-content"
+          id="panel3-header"
         >
           <Typography component="span">Kundtjänst</Typography>
         </AccordionSummary>
@@ -68,6 +81,7 @@ export default function AccordionExpandIcon() {
             </Typography>
         </AccordionDetails>
       </Accordion>
+      <small className={styles.accordionCopyright}>&copy; Freaky Fashion</small>
     </div>
   );
 }

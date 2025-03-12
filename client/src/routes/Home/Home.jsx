@@ -9,7 +9,6 @@ function Home() {
       <Header></Header>
       <Hero></Hero>
       <ProductGrid></ProductGrid>
-      <h1>Home</h1>
       <Footer></Footer>
     </>
   );

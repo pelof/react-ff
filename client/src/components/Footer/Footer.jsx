@@ -140,7 +140,7 @@ export default function Footer() {
      ></script>
    </div> */}
      {/* Behövs för att skilja på copyright i accordion och den här. */}
-   <div className={styles.footer}>
+   
      <div className={styles.footerLinks}>
        <ul>
          <li>
@@ -166,8 +166,8 @@ export default function Footer() {
          <li><Link to="/integritetspolicy">Integritetspolicy</Link></li>
        </ul>
      </div>
-     <small className="copyright">&copy; Freaky Fashion</small>
-   </div>
+     <small className={styles.copyright}>&copy; Freaky Fashion</small>
+   
  </footer>
 
         </>
