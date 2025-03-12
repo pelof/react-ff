@@ -1,0 +1,160 @@
+.promise {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+.promise li{
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+}
+
+/* Centrerar text bredvid ikonerna */
+.promise div{
+    margin: auto 0;
+}
+
+.promiseIcon {
+    font-size: 3em;
+    margin: 10px;
+}
+
+.footerLinks {
+    display: none;
+    background-color: lightgrey;
+    gap: 90px;
+    padding: 20px;
+    border-top: solid black;
+}
+
+.footerLinks li{
+    padding-bottom: 10px;
+}
+
+.footerLinks a {
+    color: black;
+    text-decoration: none;
+    /* Så inte Mina sidor osv blir två rader: */
+    white-space: nowrap;
+
+}
+
+.footerLinks a:hover {
+    text-decoration: underline;
+
+}
+
+.footer .copyright {
+    display: none;
+    text-align: center;
+    /* Annars är boxen för liten för att centrera på sidan: */
+    background-color: lightgrey;
+    padding-bottom: 40px;
+}
+
+.container {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.accordion {
+    width: 100%;
+}
+
+.accordionItem {
+    width: 100%;
+}
+
+.accordionButton {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: bold;
+    padding: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Accordion-knapparna reagerar på hover */
+.accordionButton:hover {
+    background-color: #e2e6ea;
+    color: #000;
+}
+
+/* Kollapsad styling */
+.accordionButton.collapsed {
+    background-color: #f1f1f1;
+}
+
+/* Accordion kropp, händer nåt när de här ändras? */
+.accordionBody {
+    background-color: #ffffff;
+    padding: 20px;
+    font-size: 1rem;
+    color: #333;
+    /* Rätt onödig: */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+/* Active accordion header styling */
+.accordionButton:not(.collapsed) {
+    background-color: #007bff;
+    color: white;
+    border-bottom: none;
+    box-shadow: none;
+}
+
+/* I accordion */
+.accordionBody ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+}
+
+.accordionBody a {
+    color: black;
+    text-decoration: none;
+    margin: 5px;
+}
+
+.accordionBody a:hover {
+    text-decoration: underline;
+}
+
+.accordionBody li {
+    margin-bottom: 10px;
+}
+
+/* Ligger som accordion item, är det ok? */
+.accordion .copyright {
+    display: block;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+ /* Över 640px */
+
+@media (min-width: 640px) {
+    .accordion {
+        display: none;
+    }
+    .footer-links {
+        display: flex;
+    }
+    .footer .copyright {
+        display: block;
+    }
+    .promise {
+        grid-template-columns: 1fr 1fr;
+     }
+
+}
+ /* Över 1294px */
+@media (min-width: 1295px){
+    .promise {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
