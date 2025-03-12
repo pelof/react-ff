@@ -1,5 +1,3 @@
-
-
 .accordionCopyright {
     display: block;
     text-align: center;
@@ -28,4 +26,5 @@
 
 .accordionLink:hover {
   color: #ff6600;
+  text-decoration: underline;
 }

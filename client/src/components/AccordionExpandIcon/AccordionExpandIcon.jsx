@@ -7,8 +7,6 @@ import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { Link } from 'react-router-dom';
 import styles from "./AccordionExpandIcon.module.css"
-// TODO gör så bara en kan vara uppe i taget, plus den aktiva ska byta färg. https://mui.com/material-ui/react-accordion/
-
 
 export default function AccordionExpandIcon() {
   //Håller koll på öppen panel:
@@ -41,7 +39,7 @@ export default function AccordionExpandIcon() {
             <Link to="/kappor" className={styles.accordionLink}>Kappor</Link>
             </Typography>
             <Typography>
-            <Link to="trenchcoats" className={styles.accordionLink}>Trenchcoats</Link>
+            <Link to="/trenchcoats" className={styles.accordionLink}>Trenchcoats</Link>
             </Typography>
         </AccordionDetails>
       </Accordion>
