@@ -2,10 +2,19 @@ import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import styles from "./ProductDetails.module.css";
-import { Heart } from "react-bootstrap-icons";
+import { Heart, HeartFill } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
+import SimilarProducts from "../../components/SimilarProducts/SimilarProducts";
 
 function ProductDetails() {
+
+  // Kan man flytta bort lite i egna komponenter?
+  const [isFavorited, setIsFavorited] = useState(false);
+
+  const toggleFavorite = (event) => {
+    event.preventDefault();
+    setIsFavorited(!isFavorited);
+  }
 
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
@@ -39,8 +48,15 @@ if (error) return <p>Fel: {error}</p>;
       <Header></Header>
       <section className={styles.productDetailContent}>
         <div className={styles.productDetailContentImage}>
+          {/* TODO bild ska komma från db */}
           <img src="https://placehold.co/600x700" alt="Svart T-shirt" />
-          <Heart className="bi bi-heart"></Heart>
+          <div className={styles.heartIcon} onClick={toggleFavorite}>
+                      {isFavorited ? (
+                        <HeartFill/>
+                      ) : (
+                        <Heart/>
+                      )}
+                    </div>
         </div>
         <div className={styles.productDetailContentDescription}>
           <h2>{product.product_name}</h2>
@@ -54,6 +70,7 @@ if (error) return <p>Fel: {error}</p>;
           </div>
         </div>
       </section>
+      <SimilarProducts></SimilarProducts>
       <Footer></Footer>
     </>
   );
