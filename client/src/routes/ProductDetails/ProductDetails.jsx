@@ -7,14 +7,13 @@ import { useParams } from "react-router-dom";
 import SimilarProducts from "../../components/SimilarProducts/SimilarProducts";
 
 function ProductDetails() {
-
   // Kan man flytta bort lite i egna komponenter?
   const [isFavorited, setIsFavorited] = useState(false);
 
   const toggleFavorite = (event) => {
     event.preventDefault();
     setIsFavorited(!isFavorited);
-  }
+  };
 
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
@@ -24,46 +23,39 @@ function ProductDetails() {
   useEffect(() => {
     fetch(`http://localhost:8000/api/products/${slug}`)
       .then((response) => {
-      if (!response.ok) {
-        throw new Error("Något gick fel vid hämtning av produkt");
-      }
-      return response.json();
-    })
+        if (!response.ok) {
+          throw new Error("Något gick fel vid hämtning av produkt");
+        }
+        return response.json();
+      })
       .then((data) => {
         setProduct(data);
         setLoading(false);
-  })
-  .catch((err) => {
-    setError(err.message);
-    setLoading(false);
-  });
-}, [slug]); //Kör  om slug ändras
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [slug]); //Kör  om slug ändras
 
-
-if (loading) return <p>Laddar produkt...</p>;
-if (error) return <p>Fel: {error}</p>;
+  if (loading) return <p>Laddar produkt...</p>;
+  if (error) return <p>Fel: {error}</p>;
 
   return (
     <>
       <Header></Header>
+      {/* TODO: borde vara egen komponent? */}
       <section className={styles.productDetailContent}>
         <div className={styles.productDetailContentImage}>
-          {/* TODO bild ska komma från db */}
-          <img src="https://placehold.co/600x700" alt="Svart T-shirt" />
+          <img src={product.product_image} alt="Svart T-shirt" />
           <div className={styles.heartIcon} onClick={toggleFavorite}>
-                      {isFavorited ? (
-                        <HeartFill/>
-                      ) : (
-                        <Heart/>
-                      )}
-                    </div>
+            {isFavorited ? <HeartFill /> : <Heart />}
+          </div>
         </div>
         <div className={styles.productDetailContentDescription}>
           <h2>{product.product_name}</h2>
-          <div className={styles.brandname}>{product.product_brandname}</div>
-          <p>
-            {product.product_description}
-          </p>
+          <div className={styles.brandname}>{product.product_brand}</div>
+          <p>{product.product_description}</p>
           {product.product_price} SEK
           <div>
             <button type="button">Lägg i varukorgen</button>
