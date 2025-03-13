@@ -1,0 +1,43 @@
+.productDetailContent{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    height: 100%;
+    }
+    
+    .productDetailContentImage {
+        position: relative;
+    }
+    .productDetailContentImage a {
+        color: black;
+    }
+    
+    .productDetailContentDescription {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    
+    }
+    .productDetailContent p{
+        margin-top: 20px;
+        margin-bottom: 30px;
+        /* Radbryter ord om de är för långa. */
+        overflow-wrap: break-word;
+    }
+    .productDetailContent img {
+        width: 100%;
+    }
+    
+    .productDetailContent button{
+        margin-top: 10px;
+        width: 100%;
+     }
+
+     .brandname {
+        font-size: 1.2rem;
+        color: rgb(97, 97, 97);
+    }
