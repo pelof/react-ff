@@ -1,0 +1,84 @@
+.liknandeProdukter {
+    text-align: center;
+    padding: 20px;
+    max-width: 1500px;
+    margin: auto;
+  }
+  
+  .slideshowContainer {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* max-width: 900px;
+    margin: auto; */
+  }
+  
+  .slidesWrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    /* width: calc(100% * 8);  */
+    width: 100%;
+  }
+  
+  .slide {
+    flex: 0 0 33.33%; /* 3 slides synliga samtidigt */
+    box-sizing: border-box;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  .slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .liknandeProdukterInfo {
+    padding-left: 10px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    text-align: left;
+    color: black;
+  }
+
+  .link {
+    text-decoration: none;
+  }
+  
+  .brandname {
+    font-size: 14px;
+    color: gray;
+    padding-left: 10px;
+    text-align: left;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+  
+  .prev:hover,
+  .next:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  @media (max-width: 640px) {
+    .liknandeProdukter{
+        display: none;
+    }
+  }
