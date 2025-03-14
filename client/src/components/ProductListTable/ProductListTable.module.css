@@ -1,0 +1,27 @@
+.productList {
+    border: solid black 2px;
+    width: 100%;
+    text-align: left;
+    font-size: 1.1rem;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: rgb(168, 168, 168);
+}
+
+thead th {
+    border: solid black 2px;
+}
+
+tbody td {
+border-right: solid black 2px;
+}
+
+tbody tr:nth-child(odd) {
+background-color: lightgray;
+}
+
+.trashIcon:hover {
+cursor: pointer;
+}
