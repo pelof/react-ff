@@ -3,26 +3,30 @@ import styles from "./ProductListTable.module.css";
 import { Trash } from "react-bootstrap-icons";
 
 export default function ProductListTable({ products, setProducts }) {
-  //TODO lägg till popup när man deletar
+  //TODO lägg till popup när man deletear
   // TODO hantera fel på UI-nivå
   // TODO loading state?
-const handleDelete = async (productSKU) => {
+  const handleDelete = async (productSKU) => {
     try {
-        const response = await fetch(`http://localhost:8000/api/products/${productSKU}`, {
-            method: "DELETE",
-        });
-
-        if (!response.ok) {
-            throw new Error("Misslyckades med att radera produkt");
+      const response = await fetch(
+        `http://localhost:8000/api/products/${productSKU}`,
+        {
+          method: "DELETE",
         }
+      );
+
+      if (!response.ok) {
+        throw new Error("Misslyckades med att radera produkt");
+      }
 
       // Optimistisk uppdatering av state - filtrerar bort den raderade produkten med callback-funktion
-        setProducts((prevProducts) => prevProducts.filter((product) => product.product_SKU !== productSKU));
-
+      setProducts((prevProducts) =>
+        prevProducts.filter((product) => product.product_SKU !== productSKU)
+      );
     } catch (error) {
-        console.error("Error deleting product:", error);
+      console.error("Error deleting product:", error);
     }
-}
+  };
 
   return (
     <table className={styles.productList}>
@@ -41,7 +45,10 @@ const handleDelete = async (productSKU) => {
             <td>{product.product_SKU}</td>
             <td>{product.product_price} kr</td>
             <td>
-              <Trash className={styles.trashIcon} onClick={() => handleDelete(product.product_SKU)}></Trash>
+              <Trash
+                className={styles.trashIcon}
+                onClick={() => handleDelete(product.product_SKU)}
+              ></Trash>
             </td>
           </tr>
         ))}
