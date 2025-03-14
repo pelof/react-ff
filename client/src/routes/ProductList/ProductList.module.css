@@ -1,6 +1,7 @@
-.admin-body {
+/* TODO används inte */
+/* .admin-body {
     margin: 0px;
-    overflow: auto;/* Bör ändras till auto om listan riskerar bli så lång att det behövs scrollas */
+    overflow: auto;
 }
 
 .adminHead {
@@ -8,7 +9,7 @@
     color: white;
     padding: 15px;
     width: 100%;
-    box-sizing: border-box;/* Gör att padding, margin inkluderas i 100% width */
+    box-sizing: border-box;
 }
 
 .adminPage {
@@ -42,7 +43,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-}
+} */
 
 
 .newProductButton {

@@ -1,0 +1,7 @@
+.adminHead {
+    background-color: rgb(33, 33, 33);
+    color: white;
+    padding: 15px;
+    width: 100%;
+    box-sizing: border-box;/* Gör att padding, margin inkluderas i 100% width */
+}

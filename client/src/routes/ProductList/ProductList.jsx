@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import ProductListTable from "../../components/ProductListTable/ProductListTable";
 import styles from "./ProductList.module.css"
 import { Link } from "react-router-dom";
+import AdminHeader from "../../components/AdminHeader/AdminHeader";
+import AdminSidebar from "../../components/AdminSidebar/AdminSidebar";
+import AdminLayout from "../../components/AdminLayout/AdminLayout";
 
 
 function ProductList() {
@@ -17,13 +20,7 @@ function ProductList() {
 
   return (
     <>
-
-      <header className={styles.adminHead}>
-      <h1>Freaky Fashion inventariekontroll</h1>
-    </header>
-    <main className={styles.adminPage}>
-      <aside className={styles.adminSidebar}>Produkter</aside>
-      <section className={styles.adminContents}>
+        <AdminLayout>
         <div>
           <h1>Produkter</h1>
           <div>
@@ -32,8 +29,7 @@ function ProductList() {
           </div>
         </div>
         <ProductListTable products={products} setProducts={setProducts}></ProductListTable>
-      </section>
-    </main>
+        </AdminLayout>
     </>
   );
 }
