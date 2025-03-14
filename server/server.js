@@ -35,6 +35,20 @@ app.get("/api/products/:slug", (req, res) => {
   res.json(product);
 });
 
+// för delete från produktlista
+app.delete("/api/products/:sku", (req, res) => {
+  const { sku } = req.params;
+
+  const stmt = db.prepare("DELETE FROM freakyfashion_stock WHERE product_SKU = ?");
+  const result = stmt.run(sku);
+
+  if (result.changes > 0) {
+    res.status(200).json({ message: "Produkt raderad"});
+  } else {
+    res.status(404).json({ message: "Produkt hittades inte" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Servern startad på port ${port}`);
 });
