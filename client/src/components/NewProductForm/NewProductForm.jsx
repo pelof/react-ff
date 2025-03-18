@@ -3,7 +3,7 @@ import styles from "./NewProductForm.module.css";
 import { useState } from "react";
 
 export default function NewProductForm() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   // State-objekt för formulärdata:
   const [formData, setFormData] = useState({
@@ -45,8 +45,7 @@ export default function NewProductForm() {
         published: "",
       });
 
-      navigate("/admin/products"); 
-
+      navigate("/admin/products");
     } catch (error) {
       console.error("Error:", error);
       alert("Kunde inte lägga till produkt");
