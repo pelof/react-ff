@@ -1,6 +1,10 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./NewProductForm.module.css";
+import { useState } from "react";
 
 export default function NewProductForm() {
+    const navigate = useNavigate();
+
   // State-objekt för formulärdata:
   const [formData, setFormData] = useState({
     name: "",
@@ -40,6 +44,9 @@ export default function NewProductForm() {
         price: "",
         published: "",
       });
+
+      navigate("/admin/products"); 
+
     } catch (error) {
       console.error("Error:", error);
       alert("Kunde inte lägga till produkt");
@@ -54,6 +61,7 @@ export default function NewProductForm() {
         <input
           type="text"
           id="name"
+          name="name"
           placeholder="Ange namn"
           maxLength="25"
           className={styles.nameInput}
