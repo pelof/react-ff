@@ -35,6 +35,9 @@ app.get("/api/products/:slug", (req, res) => {
   res.json(product);
 });
 
+// för lägga till en produkt
+
+
 // för delete från produktlista
 app.delete("/api/products/:sku", (req, res) => {
   const { sku } = req.params;
