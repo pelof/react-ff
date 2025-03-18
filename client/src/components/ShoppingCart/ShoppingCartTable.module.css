@@ -1,0 +1,54 @@
+.checkoutItems {
+    padding: 0;
+}
+.checkoutItems li {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+}
+/* Ta bort understrykning och blå färg på länkarna. */
+.checkoutItems a {
+    text-decoration: none;
+    color: black;
+}
+
+.checkoutItems div {
+    border: solid black;
+    margin: 1px auto;
+    width: 100%;
+    padding: 10px;
+}
+
+.checkoutProductTable {
+    display: none;
+    border: solid black 1px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.checkoutProductTable td, .checkoutProductTable th {
+    border-right: solid black 1px;
+    text-align: left;
+}
+
+.checkoutProductTable th {
+    background-color: #949292;
+}
+
+.checkoutProductTable tr:nth-child(even) {
+    background-color: rgb(222, 219, 219);
+}
+
+.checkoutProductTable tr:nth-child(odd) {
+    background-color: white;
+}
+
+@media (min-width: 640px) {
+    .checkoutItems {
+        display: none;
+    }
+    .checkoutProductTable {
+        display: table;
+    }
+}
