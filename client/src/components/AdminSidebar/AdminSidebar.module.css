@@ -1,0 +1,12 @@
+
+
+.adminSidebar{
+    background-color: rgb(220, 218, 218);
+    width: 180px;
+    min-width: 180px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: solid black;
+    border-top: none;
+    padding: 20px;
+}

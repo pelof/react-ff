@@ -1,0 +1,33 @@
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+}
+
+label {
+    padding-bottom: 10px;
+}
+
+textarea {
+    padding-bottom: 100px;
+}
+
+input, textarea {
+    margin-bottom: 10px;
+}
+
+.priceInput, .SKUInput {
+    width: 100px;
+}
+
+.nameInput {
+    width: 200px;
+}
+
+.publishedInput {
+    width: 100px;
+}
+
+.submitButton {
+    width: 80px;
+}
