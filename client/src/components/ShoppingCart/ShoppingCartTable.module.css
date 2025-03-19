@@ -1,0 +1,93 @@
+
+.shoppingCartList {
+    padding: 0;
+    list-style: none; /* Tar bort punkter */
+    width: 90%;
+    margin: 10px auto;
+}
+
+.shoppingCartList li {
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: solid black 1px;
+    padding: 10px;
+    margin-bottom: 5px; /* Skapar lite luft mellan produkterna */
+}
+
+.shoppingCartList a {
+    text-decoration: none;
+    color: black;
+    padding: 5px;
+}
+
+.shoppingCartList p {
+    margin: 0;
+    padding: 5px;
+}
+
+
+
+
+.shoppingCartTable {
+    display: none;
+    border: solid black 1px;
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 20px auto;
+}
+
+.shoppingCartTable td:not(:nth-child(5)), .shoppingCartTable th {
+    border-right: solid black 1px;
+    text-align: left;
+}
+
+.shoppingCartTable th {
+    background-color: #949292;
+}
+
+.shoppingCartTable tr:nth-child(even) {
+    background-color: rgb(222, 219, 219);
+}
+
+.shoppingCartTable tr:nth-child(odd) {
+    background-color: white;
+}
+
+
+.shoppingCartTable tbody td:nth-child(5) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+.shoppingCartTable tbody input, .shoppingCartList input {
+    max-width: 40px;
+    height: 20px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.shoppingCartTable tbody button{
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px; /* Samma höjd som input */
+    width: 30px; /* Fyrkantig knapp */
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+@media (min-width: 640px) {
+    .shoppingCartList {
+        display: none;
+    }
+    .shoppingCartTable {
+        display: table;
+    }
+}
