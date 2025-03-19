@@ -4,7 +4,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function ShoppingCartTable() {
-  const [cartItems, setCartItems] = useState([
+  
+  //TODO från kassan, skapa kassa
+const [cartItems, setCartItems] = useState([
     { id: 1, name: "Svart T-shirt", quantity: 1, price: 199 },
     { id: 2, name: "Vit T-shirt", quantity: 2, price: 199 },
   ]);
@@ -16,13 +18,12 @@ export default function ShoppingCartTable() {
       )
     );
   };
-
+//TODO påverkar kassan
   const removeItem = (id) => {
     setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
   };
 
   return (
-    // TODO gör dynamisk fixa layout. kanske ta bort div?
     <article>
       <ul className={styles.shoppingCartList}>
         {cartItems.map((item) => (
