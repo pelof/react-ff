@@ -21,11 +21,11 @@ export default function ProductCard({ product }) {
         <div className={styles.productImg}>
           <img src={product.product_image} alt={product.product_name}/>
           <div className={styles.heartIcon} onClick={toggleFavorite}>
-            {isFavorited ? (
+            {isFavorited ? 
               <HeartFill/>
-            ) : (
+             : 
               <Heart/>
-            )}
+            }
           </div>
 
           {diffDays <= 7 && <div className={styles.nyhet}>Nyhet</div>}

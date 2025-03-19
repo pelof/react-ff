@@ -12,13 +12,30 @@ const port = 8000;
 
 app.use(cors()); // Aktivera CORS för alla domäner
 app.use(express.json());
-
+//TODO se till att man inte kan se produkter som inte är published
 //för grid och sök
 app.get("/api/products", (req, res) => {
-  // Hämta alla rader från students-tabellen
-  const products = db.prepare("SELECT * FROM freakyfashion_stock").all();
+  try {
+  const searchQuery = req.query.search?.toLowerCase(); //Hämta sökterm från query om den finns
 
-  res.json(products);
+  let products;
+  if (searchQuery) {
+    products = db
+      .prepare(
+        "SELECT * FROM freakyfashion_stock WHERE LOWER(product_name) LIKE ?" // Stoppa SQL-injection med LIKE
+      )
+      .all(`%${searchQuery}%`);
+
+  } else {
+    // Hämta alla rader från students-tabellen
+    products = db.prepare("SELECT * FROM freakyfashion_stock").all();
+
+  }
+  res.json(products || []); //Skicka tillbaks produkter eller tom sträng om products är null
+} catch (error) {
+  console.error("Fel vid hämtning av produkter:", error);
+  res.status(500).json({ error: "Ett fel uppstod vid hämtning av produkter."});
+}
 });
 
 //för productDetails
@@ -35,12 +52,20 @@ app.get("/api/products/:slug", (req, res) => {
   }
   res.json(product);
 });
-
+//TODO behövs en slug generator
 // för lägga till en produkt
 app.post("/api/products", (req, res) => {
-  const {name, description, image, brand, SKU, price, published } = req.body;
+  const { name, description, image, brand, SKU, price, published } = req.body;
 
-  if (!name || !description || !image || !brand || !SKU || !price || !published) {
+  if (
+    !name ||
+    !description ||
+    !image ||
+    !brand ||
+    !SKU ||
+    !price ||
+    !published
+  ) {
     return res.status(400).json({ error: "Alla fält måste vara ifyllda" });
   }
 
@@ -49,9 +74,9 @@ app.post("/api/products", (req, res) => {
       INSERT INTO freakyfashion_stock (product_name, product_description, product_image, product_brand, product_SKU, product_price, product_published) 
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `);
-    
+
     stmt.run(name, description, image, brand, SKU, price, published);
-    
+
     res.status(201).json({ message: "Produkt tillagd!" });
   } catch (error) {
     console.error("Fel vid tillägg av produkt:", error);
@@ -59,16 +84,17 @@ app.post("/api/products", (req, res) => {
   }
 });
 
-
 // för delete från produktlista
 app.delete("/api/products/:sku", (req, res) => {
   const { sku } = req.params;
 
-  const stmt = db.prepare("DELETE FROM freakyfashion_stock WHERE product_SKU = ?");
+  const stmt = db.prepare(
+    "DELETE FROM freakyfashion_stock WHERE product_SKU = ?"
+  );
   const result = stmt.run(sku);
 
   if (result.changes > 0) {
-    res.status(200).json({ message: "Produkt raderad"});
+    res.status(200).json({ message: "Produkt raderad" });
   } else {
     res.status(404).json({ message: "Produkt hittades inte" });
   }
