@@ -4,7 +4,6 @@
 .checkoutItems li {
     display: flex;
     justify-content: space-between;
-    margin: 0;
 }
 /* Ta bort understrykning och blå färg på länkarna. */
 .checkoutItems a {
@@ -14,8 +13,8 @@
 
 .checkoutItems div {
     border: solid black;
-    margin: 1px auto;
-    width: 100%;
+    /* margin: 1px auto; */
+    /* width: 100%; */
     padding: 10px;
 }
 
@@ -42,6 +41,34 @@
 
 .checkoutProductTable tr:nth-child(odd) {
     background-color: white;
+}
+
+
+.checkoutProductTable tbody td:nth-child(5) {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 8px;
+    height: 100%;
+}
+.checkoutProductTable tbody input {
+    max-width: 40px;
+    height: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.checkoutProductTable tbody button{
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 30px; /* Samma höjd som input */
+    width: 30px; /* Fyrkantig knapp */
+    border: none;
+    background: none;
+    cursor: pointer;
 }
 
 @media (min-width: 640px) {

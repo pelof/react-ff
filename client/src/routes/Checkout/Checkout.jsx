@@ -2,7 +2,6 @@ import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import ShoppingCartTable from "../../components/ShoppingCart/ShoppingCartTable";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 function Checkout() {
   return (

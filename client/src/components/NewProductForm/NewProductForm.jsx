@@ -54,7 +54,7 @@ export default function NewProductForm() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.newProductForm} onSubmit={handleSubmit}>
         <h2>Ny produkt</h2>
         <label htmlFor="name">Namn</label>
         <input

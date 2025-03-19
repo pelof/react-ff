@@ -1,6 +1,6 @@
 /* Generellt: */
 
-ul {
+.navLinks {
     color: black;
     list-style: none;
 }
@@ -110,6 +110,8 @@ mellanrum mellan dom och tar bort understrecket. */
      }
      .headerContent {
         flex-direction: row;
+    }
+    .headerContent img {
         padding: 10px;
     }
     .headerIcons i {

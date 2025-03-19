@@ -1,18 +1,19 @@
-form {
+.newProductForm {
     display: flex;
     flex-direction: column;
     max-width: 400px;
 }
 
-label {
+.newProductForm label {
     padding-bottom: 10px;
 }
 
-textarea {
+.newProductForm textarea {
     padding-bottom: 100px;
+    margin-bottom: 10px;
 }
 
-input, textarea {
+.newProductForm input {
     margin-bottom: 10px;
 }
 

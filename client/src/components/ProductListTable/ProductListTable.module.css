@@ -6,28 +6,28 @@
   border-collapse: collapse;
 }
 
-thead {
+.productList thead {
   background-color: rgb(168, 168, 168);
 }
 
-thead th {
+.productList thead th {
   border: solid black 2px;
 }
 
-tbody td {
+.productList tbody td {
   border-right: solid black 2px;
 }
 
-tbody tr:nth-child(odd) {
+.productList tbody tr:nth-child(odd) {
   background-color: lightgray;
 }
 
 /* TODO funkar bra men ful */
-tbody tr:hover {
+.productList tbody tr:hover {
     outline: rgb(230, 164, 23) solid 2px;
 }
 
-td:nth-child(4) {
+.productList td:nth-child(4) {
   text-align: center;
   font-size: 1.3rem;
 }
