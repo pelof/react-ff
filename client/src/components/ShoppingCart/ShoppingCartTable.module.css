@@ -1,65 +1,77 @@
-.checkoutItems {
+
+.shoppingCartList {
     padding: 0;
+    list-style: none; /* Tar bort punkter */
+    width: 90%;
+    margin: 10px auto;
 }
-.checkoutItems li {
+
+.shoppingCartList li {
+    border-radius: 5px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    border: solid black 1px;
+    padding: 10px;
+    margin-bottom: 5px; /* Skapar lite luft mellan produkterna */
 }
-/* Ta bort understrykning och blå färg på länkarna. */
-.checkoutItems a {
+
+.shoppingCartList a {
     text-decoration: none;
     color: black;
+    padding: 5px;
 }
 
-.checkoutItems div {
-    border: solid black;
-    /* margin: 1px auto; */
-    /* width: 100%; */
-    padding: 10px;
+.shoppingCartList p {
+    margin: 0;
+    padding: 5px;
 }
 
-.checkoutProductTable {
+
+
+
+.shoppingCartTable {
     display: none;
     border: solid black 1px;
     table-layout: fixed;
     border-collapse: collapse;
-    width: 100%;
+    width: 90%;
+    margin: 20px auto;
 }
 
-.checkoutProductTable td, .checkoutProductTable th {
+.shoppingCartTable td:not(:nth-child(5)), .shoppingCartTable th {
     border-right: solid black 1px;
     text-align: left;
 }
 
-.checkoutProductTable th {
+.shoppingCartTable th {
     background-color: #949292;
 }
 
-.checkoutProductTable tr:nth-child(even) {
+.shoppingCartTable tr:nth-child(even) {
     background-color: rgb(222, 219, 219);
 }
 
-.checkoutProductTable tr:nth-child(odd) {
+.shoppingCartTable tr:nth-child(odd) {
     background-color: white;
 }
 
 
-.checkoutProductTable tbody td:nth-child(5) {
+.shoppingCartTable tbody td:nth-child(5) {
     display: flex;
     justify-content: space-around;
     align-items: center;
     gap: 8px;
     height: 100%;
 }
-.checkoutProductTable tbody input {
+.shoppingCartTable tbody input, .shoppingCartList input {
     max-width: 40px;
     height: 20px;
     text-align: center;
     border-radius: 5px;
-    margin-top: 10px;
 }
 
-.checkoutProductTable tbody button{
+.shoppingCartTable tbody button{
     font-size: 1.3rem;
     display: flex;
     align-items: center;
@@ -72,10 +84,10 @@
 }
 
 @media (min-width: 640px) {
-    .checkoutItems {
+    .shoppingCartList {
         display: none;
     }
-    .checkoutProductTable {
+    .shoppingCartTable {
         display: table;
     }
 }

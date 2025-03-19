@@ -25,6 +25,9 @@
     text-align: center;
     position: relative;
 }
+.spots div a {
+    text-decoration: none;
+}
 
 .spots img {
     width: 100%;

@@ -1,6 +1,7 @@
 import { Trash } from "react-bootstrap-icons";
 import styles from "./ShoppingCartTable.module.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function ShoppingCartTable() {
   const [cartItems, setCartItems] = useState([
@@ -23,24 +24,34 @@ export default function ShoppingCartTable() {
   return (
     // TODO gör dynamisk fixa layout. kanske ta bort div?
     <article>
-      <ul className={styles.checkoutItems}>
-        <div>
-          <li>
-            <a href="/products/svart-t-shirt">1 x Svart T-Shirt</a>
-            <span>199 SEK</span>
+      <ul className={styles.shoppingCartList}>
+        {cartItems.map((item) => (
+          <li key={item.id}>
+            <div>
+            <Link to={`/products/${item.name.toLowerCase().replace(" ", "-")}`}>
+              {item.quantity} x {item.name}
+            </Link>
+            <p>{item.price}</p>
+            </div>
+            <div>
+            <span>{item.price * item.quantity} SEK</span>
+            <div>
+            <input
+              type="number"
+              value={item.quantity}
+              min="1"
+              onChange={(e) => updateQuantity(item.id, Number(e.target.value))}
+              />
+            <button onClick={() => removeItem(item.id)}>
+              <Trash />
+            </button>
+              </div>
+            </div>
           </li>
-          199 SEK
-        </div>
-        <div>
-          <li>
-            <a href="/products/vit-t-shirt">2 x Vit T-Shirt</a>
-            <span>398 SEK</span>
-          </li>
-          199 SEK
-        </div>
+        ))}
       </ul>
 
-      <table className={styles.checkoutProductTable}>
+      <table className={styles.shoppingCartTable}>
         <thead>
           <tr>
             <th>Produkt</th>
@@ -52,19 +63,25 @@ export default function ShoppingCartTable() {
         </thead>
         <tbody>
           {cartItems.map((item) => (
-          <tr key={item.id}>
-            <td>{item.name}</td>
-            <td>{item.quantity}</td>
-            <td>{item.price}</td>
-            <td>{item.price * item.quantity}</td>
-            <td>
-              <input type="number" value={item.quantity} min="1" onChange={(e) => updateQuantity(item.id, Number(e.target.value))}/>{" "}
-              <button onClick={() => removeItem(item.id)}>
-                {" "}
-                <Trash></Trash>
-              </button>
-            </td>
-          </tr>
+            <tr key={item.id}>
+              <td>{item.name}</td>
+              <td>{item.quantity}</td>
+              <td>{item.price}</td>
+              <td>{item.price * item.quantity}</td>
+              <td>
+                <input
+                  type="number"
+                  value={item.quantity}
+                  min="1"
+                  onChange={(e) =>
+                    updateQuantity(item.id, Number(e.target.value))
+                  }
+                />
+                <button onClick={() => removeItem(item.id)}>
+                  <Trash />
+                </button>
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>
