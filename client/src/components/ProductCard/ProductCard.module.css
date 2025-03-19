@@ -6,6 +6,13 @@
     display: flex; 
     flex-direction: column;
     justify-content: space-between;
+    height: 100%; 
+
+}
+
+.productCard a {
+    text-decoration: none;
+    color: black;
 }
 
 .productCard:hover {
@@ -14,7 +21,7 @@
 
 .productCard img {
     width: 100%;
-    aspect-ratio: 600 / 700;
+    aspect-ratio: 6 / 7;
     object-fit: cover;
 }
 
@@ -41,7 +48,7 @@
 
 .heartIcon:hover {
     transform: scale(1.1);
-    color: red; /* Gör hjärtat rött vid hover */
+    color: red;
     animation-name: heart-pump;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -65,9 +72,10 @@
 
 .productImg {
     position: relative;
+
 }
 
-/* Kanske inte behövs? */
+
 .productImg a {
     color: #000;
 }

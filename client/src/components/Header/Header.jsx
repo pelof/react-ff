@@ -1,37 +1,47 @@
 import styles from "./Header.module.css";
 import { Search, BagFill, HeartFill } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Freaky_Fashion_logo from "../../assets/Freaky_Fashion_logo.png";
+import { useState } from "react";
 
 export default function Header() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const navigate = useNavigate(); //För att navigera till sökresultat
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+    if (searchQuery.length > 2) {
+      navigate(`/search?q=${searchQuery}`); //Skicka användaren till resultaten
+    }
+  };
+
   return (
     <>
       <header>
         <div className={styles.headerContent}>
-          {/* <!-- Logotyp --> */}
+          {/*  Logotyp */}
           <Link to="/">
             <img src={Freaky_Fashion_logo} alt="Logotyp" />
           </Link>
 
-          {/* <!-- Sökruta, syftet med aria-label är för att ge info till skärmläsare --> */}
+          {/*  Sökruta, syftet med aria-label är för att ge info till skärmläsare */}
           <div className={styles.searchContainer}>
-            {/* <!-- anropet skickas till /search --> */}
             <form
               className={styles.searchBar}
               id="search-bar"
-              action="/search"
-              method="get"
+              onSubmit={handleSearch}
             >
               <input
                 type="search"
                 id="search"
                 placeholder="Sök produkter..."
                 aria-label="Sök produkter"
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Search className={styles.searchIcon} />{" "}
+              <Search className={styles.searchIcon} />
             </form>
 
-            {/* <!-- Ikoner för favoriter och varukorg --> */}
+            {/*  Ikoner för favoriter och varukorg  */}
             <div className={styles.headerIcons}>
               <Link to="/" aria-label="Favoriter">
               <HeartFill className={styles.icon} />
@@ -45,7 +55,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* <!-- Kategorier --> */}
+        {/*  Kategorier */}
         <nav>
           <ul className={styles.navLinks}>
             <li>
