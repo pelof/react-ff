@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import styles from "./ProductDetails.module.css";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
@@ -43,7 +41,6 @@ function ProductDetails() {
 
   return (
     <>
-      <Header></Header>
       {/* TODO: borde vara egen komponent? */}
       <section className={styles.productDetailContent}>
         <div className={styles.productDetailContentImage}>
@@ -63,7 +60,6 @@ function ProductDetails() {
         </div>
       </section>
       <SimilarProducts></SimilarProducts>
-      <Footer></Footer>
     </>
   );
 }
