@@ -71,11 +71,13 @@ app.post("/api/products", (req, res) => {
 
   try {
     const stmt = db.prepare(`
-      INSERT INTO freakyfashion_stock (product_name, product_description, product_image, product_brand, product_SKU, product_price, product_published) 
-      VALUES (?, ?, ?, ?, ?, ?, ?)
+      INSERT INTO freakyfashion_stock (product_name, product_description, product_image, product_brand, product_SKU, product_price, product_published, product_slug) 
+      VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `);
 
-    stmt.run(name, description, image, brand, SKU, price, published);
+    const slug = generateSlug(name)
+
+    stmt.run(name, description, image, brand, SKU, price, published, slug);
 
     res.status(201).json({ message: "Produkt tillagd!" });
   } catch (error) {
@@ -83,6 +85,16 @@ app.post("/api/products", (req, res) => {
     res.status(500).json({ error: "Något gick fel vid sparandet" });
   }
 });
+
+function generateSlug(productName) {
+  return productName
+    .toLowerCase()
+    .replace(/å/g,'a')
+    .replace(/ä/g,'a')
+    .replace(/ö/g,'o')
+    .replace(/[^a-z0-9]+/g, '-') // Byt ut specialtecken mot "-"
+    .replace(/^-|-$/g, ''); // Ta bort "-" i början eller slutet
+}
 
 // för delete från produktlista
 app.delete("/api/products/:sku", (req, res) => {
