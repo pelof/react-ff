@@ -33,7 +33,7 @@ export default function ProductCard({ product }) {
         
         <div className={styles.productCardInfo}>
           <h2>{product.product_name}</h2>
-          {product.product_price} kr
+          <p>{product.product_price} kr</p>
         </div>
         <div className={styles.brandname}>{product.product_brand}</div>
       </Link>
