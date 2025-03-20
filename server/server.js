@@ -16,19 +16,20 @@ app.use(express.json());
 //för grid och sök
 app.get("/api/products", (req, res) => {
   try {
+  const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
   const searchQuery = req.query.search?.toLowerCase(); //Hämta sökterm från query om den finns
 
   let products;
   if (searchQuery) {
     products = db
       .prepare(
-        "SELECT * FROM freakyfashion_stock WHERE LOWER(product_name) LIKE ?" // Stoppa SQL-injection med LIKE
+        "SELECT * FROM freakyfashion_stock WHERE LOWER(product_name) LIKE ? AND product_published <= ?" // Stoppa SQL-injection med LIKE
       )
-      .all(`%${searchQuery}%`);
+      .all(`%${searchQuery}%`, today);
 
   } else {
     // Hämta alla rader från students-tabellen
-    products = db.prepare("SELECT * FROM freakyfashion_stock").all();
+    products = db.prepare("SELECT * FROM freakyfashion_stock WHERE product_published <= ?").all(today);
 
   }
   res.json(products || []); //Skicka tillbaks produkter eller tom sträng om products är null
@@ -40,19 +41,18 @@ app.get("/api/products", (req, res) => {
 
 //för productDetails
 app.get("/api/products/:slug", (req, res) => {
+  const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
   const productSlug = req.params.slug;
 
   const product = db
-    .prepare("SELECT * FROM freakyfashion_stock WHERE product_slug = ?")
-    .get(productSlug);
+    .prepare("SELECT * FROM freakyfashion_stock WHERE product_slug = ? AND product_published <= ?")
+    .get(productSlug, today);
 
   if (!product) {
-    res.status(404).send();
-    return;
+    return res.status(404).json({ error: "Produkten finns inte eller är inte publicerad ännu" });
   }
   res.json(product);
 });
-//TODO behövs en slug
 // för lägga till en produkt
 app.post("/api/products", (req, res) => {
   const { name, description, image, brand, SKU, price, published } = req.body;
