@@ -17,7 +17,7 @@ app.use(express.json());
 app.get("/api/products", (req, res) => {
   try {
   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
-  const searchQuery = req.query.search?.toLowerCase(); //Hämta sökterm från query om den finns
+  const searchQuery = req.query.q?.toLowerCase(); //Hämta sökterm från query om den finns
 
   let products;
   if (searchQuery) {
