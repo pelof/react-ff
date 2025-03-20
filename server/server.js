@@ -52,7 +52,7 @@ app.get("/api/products/:slug", (req, res) => {
   }
   res.json(product);
 });
-//TODO behövs en slug generator
+//TODO behövs en slug
 // för lägga till en produkt
 app.post("/api/products", (req, res) => {
   const { name, description, image, brand, SKU, price, published } = req.body;

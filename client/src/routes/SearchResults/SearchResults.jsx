@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import ProductGrid from "../../components/ProductGrid/ProductGrid";
-import styles from "./SearchResults.module.css";
 import { useSearchParams } from "react-router-dom";
+import styles from "./SearchResults.module.css";
 
 function SearchResults() {
     const [products, setProducts] = useState([])
@@ -32,10 +30,8 @@ function SearchResults() {
 
   return (
     <>
-      <Header></Header>
-      <h2>{products.length > 0 ? `Hittade ${products.length} produkter` : "Inga produkter hittades"}</h2>
+      <h2 className={styles.searchResultsTitle}>{products.length > 0 ? `Hittade ${products.length} produkter` : "Inga produkter hittades"}</h2>
       <ProductGrid products={products}></ProductGrid>
-      <Footer></Footer>
     </>
   );
 }

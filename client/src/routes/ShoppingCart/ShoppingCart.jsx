@@ -4,7 +4,6 @@ function ShoppingCart() {
   return (
     <>
       <Header></Header>
-
       <h1>ShoppingCart</h1>
     </>
   );
