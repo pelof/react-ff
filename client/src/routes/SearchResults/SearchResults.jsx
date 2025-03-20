@@ -13,13 +13,11 @@ function SearchResults() {
 //ingen query inskickad i async
     const fetchProducts = async () => {
       try {
-        if (query.length > 2) {
-          const response = await fetch(`/api/products?search=${query}`);
+
+          const response = await fetch(`/api/products?q=${query}`);
           const data = await response.json();
           setProducts(data);
-        } else {
-          setProducts([]); //Rensa listan om söktermen är för kort.
-        }
+      
       } catch (error) {
         console.error("Fel vid hämtning av produkter:", error);
       }
