@@ -41,7 +41,7 @@ export default function SimilarProducts() {
                 <img src={product.product_image} alt={product.product_name} />
                 <div className={styles.liknandeProdukterInfo}>
                   <h2>{product.product_name}</h2>
-                  <h2>{product.product_price}</h2>
+                  <h2>{product.product_price} SEK</h2>
                 </div>
                 <div className={styles.brandname}>{product.product_brand}</div>
               </Link>
