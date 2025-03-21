@@ -12,6 +12,7 @@ const port = 8000;
 
 app.use(cors()); // Aktivera CORS för alla domäner
 app.use(express.json());
+
 //TODO se till att man inte kan se produkter som inte är published
 //för grid och sök
 app.get("/api/products", (req, res) => {
@@ -53,6 +54,7 @@ app.get("/api/products/:slug", (req, res) => {
   }
   res.json(product);
 });
+
 // för lägga till en produkt
 app.post("/api/products", (req, res) => {
   const { name, description, image, brand, SKU, price, published } = req.body;
