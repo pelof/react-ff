@@ -10,14 +10,14 @@ function Home() {
       useEffect(() => {
         fetch("http://localhost:8000/api/products") // API-endpoint för produkter
           .then((response) => response.json())
-          .then((data) => setProducts(data.slice(0, 8))) // Begränsar till 8 produkter
+          .then((data) => setProducts(data))
           .catch((error) => console.error("Error fetching products:", error));
       }, []);
   
   return (
     <>
       <Hero></Hero>
-      <Spots></Spots>
+      <Spots products={products}></Spots>
       <ProductGrid products={products}></ProductGrid>
     </>
   );
