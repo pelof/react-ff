@@ -4,16 +4,15 @@
     justify-content: center;
     align-items: center;
     border: black solid 2px;
+    border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    gap: 40px;
-    font-size: 1.5rem;
 }
 
 .hero > div{
     width: 100%;
     text-align: center;
-    margin: 20px;
+    margin: 0px;
 }
 
 .hero img{
@@ -21,11 +20,20 @@
     border-radius: 10px;
 }
 
+.hero p {
+    font-size: 1rem;
+}
+
 @media (min-width: 640px) {
     .hero div{
         font-size: 1rem;
         width: 50%;
+        margin: 20px;
      }
+     .hero p {
+        font-size: 1.3rem;
+    }
+
 
 }
 

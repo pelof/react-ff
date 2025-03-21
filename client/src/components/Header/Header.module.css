@@ -124,3 +124,10 @@ mellanrum mellan dom och tar bort understrecket. */
 
 
 }
+@media (min-width: 1024px) {
+    .searchContainer {
+        display: flex;
+        align-items: center;
+        margin-left: 30px;
+      }
+}

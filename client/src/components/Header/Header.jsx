@@ -18,14 +18,13 @@ export default function Header() {
     <>
       <header>
         <div className={styles.headerContent}>
-          {/* <!-- Logotyp --> */}
+          {/*  Logotyp */}
           <Link to="/">
             <img src={Freaky_Fashion_logo} alt="Logotyp" />
           </Link>
 
-          {/* <!-- Sökruta, syftet med aria-label är för att ge info till skärmläsare --> */}
+          {/*  Sökruta, syftet med aria-label är för att ge info till skärmläsare */}
           <div className={styles.searchContainer}>
-            {/* <!-- anropet skickas till /search --> */}
             <form
               className={styles.searchBar}
               id="search-bar"
@@ -41,7 +40,7 @@ export default function Header() {
               <Search className={styles.searchIcon} />{" "}
             </form>
 
-            {/* <!-- Ikoner för favoriter och varukorg --> */}
+            {/*  Ikoner för favoriter och varukorg */}
             <div className={styles.headerIcons}>
               <Link to="/" aria-label="Favoriter">
               <HeartFill className={styles.icon} />
@@ -55,7 +54,7 @@ export default function Header() {
           </div>
         </div>
 
-        {/* <!-- Kategorier --> */}
+        {/*  Kategorier */}
         <nav>
           <ul className={styles.navLinks}>
             <li>

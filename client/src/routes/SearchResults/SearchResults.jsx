@@ -36,4 +36,3 @@ function SearchResults() {
 
 export default SearchResults;
 
-//TODO: sökfunktionen ska ju finnas i header. söksidan ska ba visa resultat
