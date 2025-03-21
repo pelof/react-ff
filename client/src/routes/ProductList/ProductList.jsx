@@ -9,7 +9,7 @@ function ProductList() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/products") // API-endpoint för produkter
+    fetch("http://localhost:8000/api/admin/products") // API-endpoint för produkter
     .then((response) => response.json())
     .then((data) => setProducts(data))
     .catch((error) => console.error("Error fetching products:", error));
@@ -21,7 +21,7 @@ function ProductList() {
           <h1>Produktlista</h1>
           <div>
           <Link to="products/new" id="load-products-button" className={styles.loadProductButton}> Ladda produkter </Link>
-          <Link to="../products/new" className={styles.newProductButton}> Ny produkt </Link>       
+          <Link to="/admin/products/new" className={styles.newProductButton}> Ny produkt </Link>       
           </div>
         </div>
         <ProductListTable products={products} setProducts={setProducts}></ProductListTable>
