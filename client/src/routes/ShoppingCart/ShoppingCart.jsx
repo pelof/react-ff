@@ -1,10 +1,11 @@
-import Header from "../../components/Header/Header";
+import ShoppingCartTable from "../../components/ShoppingCart/ShoppingCartTable";
 
 function ShoppingCart() {
   return (
     <>
-      <Header></Header>
-      <h1>ShoppingCart</h1>
+      <h1>Varukorgen</h1>
+      <ShoppingCartTable />
+      <button>Till kassan</button>
     </>
   );
 }
