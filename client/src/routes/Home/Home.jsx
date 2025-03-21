@@ -16,8 +16,8 @@ function Home() {
   
   return (
     <>
-      <Spots></Spots>
       <Hero></Hero>
+      <Spots></Spots>
       <ProductGrid products={products}></ProductGrid>
     </>
   );
