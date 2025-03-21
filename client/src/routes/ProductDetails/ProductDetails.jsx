@@ -35,10 +35,16 @@ function ProductDetails() {
         setLoading(false);
       });
   }, [slug]); //Kör  om slug ändras
-
+useEffect(() => {
+  if (product) {
+    document.title = `${product.product_name} - Freaky Fashion`;
+  }
+}, [product]);
+   
+  
   if (loading) return <p>Laddar produkt...</p>;
   if (error) return <p>Fel: {error}</p>;
-
+  
 
   return (
     <>
@@ -60,7 +66,7 @@ function ProductDetails() {
           </div>
         </div>
       </section>
-      <SimilarProducts/>
+      <SimilarProducts />
     </>
   );
 }
