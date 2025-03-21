@@ -18,7 +18,7 @@ function ProductList() {
   return (
     <>
         <div>
-          <h1>Produkter</h1>
+          <h1>Produktlista</h1>
           <div>
           <Link to="products/new" id="load-products-button" className={styles.loadProductButton}> Ladda produkter </Link>
           <Link to="../products/new" className={styles.newProductButton}> Ny produkt </Link>       

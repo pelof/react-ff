@@ -46,7 +46,7 @@ export default function Header() {
               <HeartFill className={styles.icon} />
 
               </Link>
-              <Link to="/checkout" aria-label="Varukorg">
+              <Link to="/basket" aria-label="Varukorg">
               <BagFill className={styles.icon} />
 
               </Link>
