@@ -1,12 +1,14 @@
 .promise {
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: start;
   margin-top: 15px;
   margin-bottom: 15px;
 }
 .promise li {
   display: flex;
   flex-direction: row;
+  width: 200px;
 }
 
 /* Centrerar text bredvid ikonerna */
@@ -67,6 +69,7 @@
   }
   .promise {
     grid-template-columns: 1fr 1fr;
+    justify-items: center;
   }
 
   .accordionContainer {
