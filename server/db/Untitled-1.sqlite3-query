@@ -1,0 +1,14 @@
+-- database: /Users/pelof/Documents/Workspace/JS2/react-ff/server/db/freakyfashion.db
+
+SELECT * FROM freakyfashion_stock
+ORDER BY `product_SKU` ASC;
+
+INSERT INTO freakyfashion_stock (product_name, product_description, product_image, product_brand, product_SKU, product_price, product_slug, product_published)
+VALUES
+  ('Hisingen Hoodie', 'En bekväm och stilren hoodie inspirerad av Göteborgs Hisingen. Perfekt för kalla höstkvällar.', 'https://placehold.co/600x700', 'Hisingen Wear', 'HIS001', 499, 'hisingen-hoodie', '2025-03-21'),
+  ('Linné T-shirt', 'En cool T-shirt med print som hyllar Göteborgs charmiga Linné. Perfekt för en avslappnad look.', 'https://placehold.co/600x700', 'Linné Street', 'LIN002', 299, 'linne-t-shirt', '2025-03-21'),
+  ('Majorna Jeans', 'Vår nya jeansmodell inspirerad av Majorna – Göteborgs mest trendiga och hipster-district. Riktigt coola och bekväma.', 'https://placehold.co/600x700', 'Majorna Style', 'MAJ003', 649, 'majorna-jeans', '2025-03-21'),
+  ('Vasastan Skjorta', 'En stilren och elegant skjorta som fångar essensen av Göteborgs Vasastan. Perfekt för både vardag och fest.', 'https://placehold.co/600x700', 'Vasastan Apparel', 'VAS004', 599, 'vasastan-skjorta', '2025-03-21'),
+  ('Nordstan Kavaj', 'En klassisk kavaj i modern stil, inspirerad av Nordstan. Bär den för att vara både professionell och stilig.', 'https://placehold.co/600x700', 'Nordstan Fashion', 'NOR005', 999, 'nordstan-kavaj', '2025-03-21'),
+  ('Fiskebäck Sneakers', 'Trendy sneakers inspirerade av det marina området Fiskebäck i Göteborg. Riktigt sköna och lämpliga för både stad och strand.', 'https://placehold.co/600x700', 'Fiskebäck Footwear', 'FIS006', 749, 'fiskeback-sneakers', '2025-03-21'),
+  ('Angered Jacka', 'En robust jacka för alla väder, inspirerad av Angereds dynamiska och mångsidiga karaktär. Håller dig varm i alla situationer.', 'https://placehold.co/600x700', 'Angered Outdoor', 'ANG007', 799, 'angered-jacka', '2025-03-21');

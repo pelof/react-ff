@@ -40,6 +40,17 @@ app.get("/api/products", (req, res) => {
 }
 });
 
+// Produktlista på adminsidan
+app.get("/api/admin/products", (req, res) => {
+try{
+let products = db.prepare("SELECT * FROM freakyfashion_stock").all();
+res.json(products);
+} catch (error) {
+  console.error("Fel vid hämtning av produkter: ", error);
+  res.status(500).json({ error: "Ett fel uppstod vid hämtning av produkter."});
+}
+});
+
 //för productDetails
 app.get("/api/products/:slug", (req, res) => {
   const today = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
