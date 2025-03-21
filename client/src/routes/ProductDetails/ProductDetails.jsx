@@ -39,6 +39,7 @@ function ProductDetails() {
   if (loading) return <p>Laddar produkt...</p>;
   if (error) return <p>Fel: {error}</p>;
 
+
   return (
     <>
       {/* TODO: borde vara egen komponent? */}
@@ -59,7 +60,7 @@ function ProductDetails() {
           </div>
         </div>
       </section>
-      <SimilarProducts></SimilarProducts>
+      <SimilarProducts/>
     </>
   );
 }
