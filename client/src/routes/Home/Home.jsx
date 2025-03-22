@@ -22,6 +22,8 @@ function Home() {
       });
   }, []);
 
+  const gridProducts = products.slice(0 , 8);
+
   //TODO styla
   // Om inte products har laddat klart visas Laddar... endast
   if (loading) {
@@ -32,7 +34,7 @@ function Home() {
     <>
       <Hero products={products} heroImage={heroImage}></Hero>
       <Spots products={products}></Spots>
-      <ProductGrid products={products}></ProductGrid>
+      <ProductGrid products={gridProducts}></ProductGrid>
     </>
   );
 }

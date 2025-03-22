@@ -36,3 +36,4 @@ function SearchResults() {
 
 export default SearchResults;
 
+//TODO: extra visa nyheter först
