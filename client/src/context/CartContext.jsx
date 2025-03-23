@@ -8,10 +8,10 @@ export const CartProvider = ({ children }) => {
   //Lägg till produkt i cart
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.id === product.id);
+      const existingItem = prevItems.find((item) => item.product_SKU === product.product_SKU);
       if (existingItem) {
         return prevItems.map((item) =>
-          item.id === product.id
+          item.product_SKU === product.product_SKU
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -22,24 +22,24 @@ export const CartProvider = ({ children }) => {
   };
 
   //Uppdatera antal produkter
-  const updateQuantity = (id, newQuantity) => {
+  const updateQuantity = (product_SKU, newQuantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item
+        item.product_SKU === product_SKU ? { ...item, quantity: Math.max(1, newQuantity) } : item
       )
     );
   };
 
   //Ta bort en produkt
 
-  const removeItem = (id) => {
-    return (prevItems) => prevItems.filter((item) => item.id !== id);
+  const removeItem = (product_SKU) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.product_SKU !== product_SKU));
   };
 
   //TTotalt pris
   const getTotalPrice = () => {
     return cartItems.reduce(
-      (total, item) => total + item.price * item.quantity,
+      (total, item) => total + item.product_price * item.quantity,
       0
     );
   };
