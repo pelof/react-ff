@@ -1,5 +1,5 @@
 import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
-import ShoppingCartTable from "../../components/ShoppingCart/ShoppingCartTable";
+import ShoppingCartTable from "../../components/ShoppingCartTable/ShoppingCartTable";
 
 function Checkout() {
   return (
