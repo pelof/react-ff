@@ -1,14 +1,25 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  // Hämta varukog från LocalStorage vid sidladdning, om den inte finns returnera tom array
+  const [cartItems, setCartItems] = useState(() => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  //Spara varukorgen i LocalStorage(i webbläsaren) varje gång den ändras
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   //Lägg till produkt i cart
   const addToCart = (product) => {
     setCartItems((prevItems) => {
-      const existingItem = prevItems.find((item) => item.product_SKU === product.product_SKU);
+      const existingItem = prevItems.find(
+        (item) => item.product_SKU === product.product_SKU
+      );
       if (existingItem) {
         return prevItems.map((item) =>
           item.product_SKU === product.product_SKU
@@ -25,7 +36,9 @@ export const CartProvider = ({ children }) => {
   const updateQuantity = (product_SKU, newQuantity) => {
     setCartItems((prevItems) =>
       prevItems.map((item) =>
-        item.product_SKU === product_SKU ? { ...item, quantity: Math.max(1, newQuantity) } : item
+        item.product_SKU === product_SKU
+          ? { ...item, quantity: Math.max(1, newQuantity) }
+          : item
       )
     );
   };
@@ -33,7 +46,9 @@ export const CartProvider = ({ children }) => {
   //Ta bort en produkt
 
   const removeItem = (product_SKU) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.product_SKU !== product_SKU));
+    setCartItems((prevItems) =>
+      prevItems.filter((item) => item.product_SKU !== product_SKU)
+    );
   };
 
   //TTotalt pris
@@ -59,8 +74,7 @@ export const CartProvider = ({ children }) => {
   );
 };
 
-
 //Custom hook för att använda varukorgen
 export const useCart = () => {
-    return useContext(CartContext);
-}
+  return useContext(CartContext);
+};
