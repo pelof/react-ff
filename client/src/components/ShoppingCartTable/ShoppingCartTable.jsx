@@ -34,9 +34,9 @@ export default function ShoppingCartTable() {
             <Link to={`/products/${item.product_slug}`}>
               {item.quantity} x {item.product_name}
             </Link>
-            <p>{item.product_price}</p>
+            <p>{item.product_price} SEK</p>
             </div>
-            <div>
+            <div className={styles.shoppingCartListRightSide}>
             <span>{(item.product_price * item.quantity).toFixed(2)} SEK</span> {/* toFixed så att det bara kan bli två decimaler */}
             <div>
             <input

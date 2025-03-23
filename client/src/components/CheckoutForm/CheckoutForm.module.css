@@ -1,0 +1,80 @@
+.formTitle {
+    text-align: center;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.checkoutForm {
+    width: 90%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.nameContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nameContainer > div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.fieldsetCheckout {
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+.fieldsetCheckout > div {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.streetInput{
+    max-width: 600px;
+}
+.postalInput{
+    max-width: 150px;
+
+}
+.cityInput{
+    max-width: 250px;
+}
+
+.newsletterCheckbox {
+margin-top: 20px;
+border: red solid;
+}
+
+.checkoutForm button {
+    width: 100px;
+    align-self: center;
+    margin-top: 20px;
+}
+
+@media (min-width: 640px) {
+    .formTitle {
+        text-align: left;
+        width: 90%;
+        margin: 10px auto;
+    }
+    .nameContainer {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        max-width: 900px;
+    }
+    
+    .nameContainer > div {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+    }
+}
