@@ -1,0 +1,21 @@
+.shoppingCartTitle {
+font-size: 2rem;
+margin-top: 50px;
+text-align: center;
+}
+
+.toCheckout {
+    border: 1px solid gray;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+
+}
+.toCheckout:hover {
+    cursor: pointer;
+}
+
+.toCheckoutContainer {
+    display: flex;
+    justify-content: center;
+}

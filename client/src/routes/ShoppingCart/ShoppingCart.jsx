@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import ShoppingCartTable from "../../components/ShoppingCartTable/ShoppingCartTable";
+import styles from "./ShoppingCart.module.css"
 
 function ShoppingCart() {
   return (
     <>
-      <h1>Varukorgen</h1>
+      <h1 className={styles.shoppingCartTitle}>Varukorgen</h1>
       <ShoppingCartTable />
-      <button>Till kassan</button>
+      <div className={styles.toCheckoutContainer}>
+      <Link to="/checkout" className={styles.toCheckout} >Till Kassan</Link>
+      </div>
     </>
   );
 }

@@ -37,7 +37,7 @@ export default function ShoppingCartTable() {
             <p>{item.product_price}</p>
             </div>
             <div>
-            <span>{item.product_price * item.quantity} SEK</span>
+            <span>{(item.product_price * item.quantity).toFixed(2)} SEK</span> {/* toFixed så att det bara kan bli två decimaler */}
             <div>
             <input
               type="number"
@@ -70,7 +70,7 @@ export default function ShoppingCartTable() {
               <td>{item.product_name}</td>
               <td>{item.quantity}</td>
               <td>{item.product_price} SEK</td>
-              <td>{item.product_price * item.quantity} SEK</td>
+              <td>{(item.product_price * item.quantity).toFixed(2)} SEK</td>
               <td>
                 <input
                   type="number"
@@ -88,7 +88,7 @@ export default function ShoppingCartTable() {
           ))}
         </tbody>
       </table>
-      <h3>Totalt: {getTotalPrice()} SEK</h3>
+      <h3 className={styles.totalTitle}>Totalt: {getTotalPrice()} SEK</h3>
     </article>
   );
 }
