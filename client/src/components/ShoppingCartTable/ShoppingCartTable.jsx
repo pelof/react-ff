@@ -1,27 +1,29 @@
 import { Trash } from "react-bootstrap-icons";
 import styles from "./ShoppingCartTable.module.css";
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 export default function ShoppingCartTable() {
   
   //TODO från kassan, skapa kassa
-const [cartItems, setCartItems] = useState([
-    { id: 1, name: "Svart T-shirt", quantity: 1, price: 199 },
-    { id: 2, name: "Vit T-shirt", quantity: 2, price: 199 },
-  ]);
+// const [cartItems, setCartItems] = useState([
+//     { id: 1, name: "Svart T-shirt", quantity: 1, price: 199 },
+//     { id: 2, name: "Vit T-shirt", quantity: 2, price: 199 },
+//   ]);
 
-  const updateQuantity = (id, newQuantity) => {
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item
-      )
-    );
-  };
+  const {cartItems, updateQuantity, removeItem, getTotalPrice} = useCart();
+
+  // const updateQuantity = (id, newQuantity) => {
+  //   setCartItems((prevItems) =>
+  //     prevItems.map((item) =>
+  //       item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item
+  //     )
+  //   );
+  // };
 //TODO påverkar kassan
-  const removeItem = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
+  // const removeItem = (id) => {
+  //   setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
+  // };
 
   return (
     <article>
@@ -86,6 +88,7 @@ const [cartItems, setCartItems] = useState([
           ))}
         </tbody>
       </table>
+      <h3>Totalt: {getTotalPrice()} SEK</h3>
     </article>
   );
 }

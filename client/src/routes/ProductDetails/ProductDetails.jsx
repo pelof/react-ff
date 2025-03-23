@@ -3,6 +3,7 @@ import styles from "./ProductDetails.module.css";
 import { Heart, HeartFill } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import SimilarProducts from "../../components/SimilarProducts/SimilarProducts";
+import { useCart } from "../../context/CartContext";
 
 function ProductDetails() {
   // Kan man flytta bort lite i egna komponenter?
@@ -12,7 +13,7 @@ function ProductDetails() {
     event.preventDefault();
     setIsFavorited(!isFavorited);
   };
-
+  const { addToCart } = useCart();
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,16 +36,14 @@ function ProductDetails() {
         setLoading(false);
       });
   }, [slug]); //Kör  om slug ändras
-useEffect(() => {
-  if (product) {
-    document.title = `${product.product_name} - Freaky Fashion`;
-  }
-}, [product]);
-   
-  
+  useEffect(() => {
+    if (product) {
+      document.title = `${product.product_name} - Freaky Fashion`;
+    }
+  }, [product]);
+
   if (loading) return <p>Laddar produkt...</p>;
   if (error) return <p>Fel: {error}</p>;
-  
 
   return (
     <>
@@ -62,7 +61,7 @@ useEffect(() => {
           <p>{product.product_description}</p>
           {product.product_price} SEK
           <div>
-            <button type="button">Lägg i varukorgen</button>
+            <button type="button" onClick={() => addToCart(product)}>Lägg i varukorgen</button>
           </div>
         </div>
       </section>
