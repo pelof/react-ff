@@ -5,26 +5,8 @@ import { useCart } from "../../context/CartContext";
 
 export default function ShoppingCartTable() {
   
-  //TODO från kassan, skapa kassa
-// const [cartItems, setCartItems] = useState([
-//     { id: 1, name: "Svart T-shirt", quantity: 1, price: 199 },
-//     { id: 2, name: "Vit T-shirt", quantity: 2, price: 199 },
-//   ]);
-
   const {cartItems, updateQuantity, removeItem, getTotalPrice} = useCart();
-
-  // const updateQuantity = (id, newQuantity) => {
-  //   setCartItems((prevItems) =>
-  //     prevItems.map((item) =>
-  //       item.id === id ? { ...item, quantity: Math.max(1, newQuantity) } : item
-  //     )
-  //   );
-  // };
-//TODO påverkar kassan
-  // const removeItem = (id) => {
-  //   setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  // };
-
+//TODO om inte det finns några saker i varukorgen visas "varukorgen är tom"
   return (
     <article>
       <ul className={styles.shoppingCartList}>
@@ -34,9 +16,9 @@ export default function ShoppingCartTable() {
             <Link to={`/products/${item.product_slug}`}>
               {item.quantity} x {item.product_name}
             </Link>
-            <p>{item.product_price}</p>
+            <p>{item.product_price} SEK</p>
             </div>
-            <div>
+            <div className={styles.shoppingCartListRightSide}>
             <span>{(item.product_price * item.quantity).toFixed(2)} SEK</span> {/* toFixed så att det bara kan bli två decimaler */}
             <div>
             <input
