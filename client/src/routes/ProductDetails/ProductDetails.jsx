@@ -1,24 +1,18 @@
 import { useEffect, useState } from "react";
-import styles from "./ProductDetails.module.css";
-import { Heart, HeartFill } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import SimilarProducts from "../../components/SimilarProducts/SimilarProducts";
 import { useCart } from "../../context/CartContext";
+import ProductDetailContent from "../../components/ProductDetailContent/ProductDetailContent";
 
 function ProductDetails() {
   // Kan man flytta bort lite i egna komponenter?
-  const [isFavorited, setIsFavorited] = useState(false);
-
-  const toggleFavorite = (event) => {
-    event.preventDefault();
-    setIsFavorited(!isFavorited);
-  };
+  
   const { addToCart } = useCart();
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+//TODO fetchanrop skulle kunna sparas som egna komponenter, typ useFetchProduct
   useEffect(() => {
     fetch(`http://localhost:8000/api/products/${slug}`)
       .then((response) => {
@@ -47,24 +41,7 @@ function ProductDetails() {
 
   return (
     <>
-      {/* TODO: borde vara egen komponent? */}
-      <section className={styles.productDetailContent}>
-        <div className={styles.productDetailContentImage}>
-          <img src={product.product_image} alt="Svart T-shirt" />
-          <div className={styles.heartIcon} onClick={toggleFavorite}>
-            {isFavorited ? <HeartFill /> : <Heart />}
-          </div>
-        </div>
-        <div className={styles.productDetailContentDescription}>
-          <h2>{product.product_name}</h2>
-          <div className={styles.brandname}>{product.product_brand}</div>
-          <p>{product.product_description}</p>
-          {product.product_price} SEK
-          <div>
-            <button type="button" onClick={() => addToCart(product)}>Lägg i varukorgen</button>
-          </div>
-        </div>
-      </section>
+      <ProductDetailContent product={product} addToCart={addToCart}/>
       <SimilarProducts />
     </>
   );
