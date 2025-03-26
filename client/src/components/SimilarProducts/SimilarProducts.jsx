@@ -6,9 +6,8 @@ export default function SimilarProducts() {
   const [slideIndex, setSlideIndex] = useState(0);
 
   const [products, setProducts] = useState([]);
+  
   const { slug } = useParams();
-
-//TODO kanske lägga fetch osv i ProductDetails för att hålla pure
   useEffect(() => {
     if (!slug) return; // Stoppar fetchen om product_slug saknas
 

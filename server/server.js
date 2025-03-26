@@ -6,14 +6,12 @@ const db = new Database("./db/freakyfashion.db", {
   verbose: console.log,
 });
 
-// const express = require ("express"); //TODO: behövs den här raden?
 const app = express();
 const port = 8000;
 
 app.use(cors()); // Aktivera CORS för alla domäner
 app.use(express.json());
 
-//TODO se till att man inte kan se produkter som inte är published
 //för grid och sök
 app.get("/api/products", (req, res) => {
   try {
