@@ -5,13 +5,13 @@ import { useCart } from "../../context/CartContext";
 import ProductDetailContent from "../../components/ProductDetailContent/ProductDetailContent";
 
 function ProductDetails() {
-  // Kan man flytta bort lite i egna komponenter?
   
   const { addToCart } = useCart();
   const { slug } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
 //TODO fetchanrop skulle kunna sparas som egna komponenter, typ useFetchProduct
   useEffect(() => {
     fetch(`http://localhost:8000/api/products/${slug}`)
@@ -30,11 +30,15 @@ function ProductDetails() {
         setLoading(false);
       });
   }, [slug]); //Kör  om slug ändras
+
   useEffect(() => {
     if (product) {
       document.title = `${product.product_name} - Freaky Fashion`;
     }
   }, [product]);
+
+
+  
 
   if (loading) return <p>Laddar produkt...</p>;
   if (error) return <p>Fel: {error}</p>;

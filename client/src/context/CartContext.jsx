@@ -44,7 +44,6 @@ export const CartProvider = ({ children }) => {
   };
 
   //Ta bort en produkt
-
   const removeItem = (product_SKU) => {
     setCartItems((prevItems) =>
       prevItems.filter((item) => item.product_SKU !== product_SKU)

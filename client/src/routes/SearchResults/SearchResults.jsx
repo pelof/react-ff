@@ -26,8 +26,10 @@ function SearchResults() {
   return (
     <>
       <h2 className={styles.searchResultsTitle}>
-        {products.length > 0
+        {products.length > 1
           ? `Hittade ${products.length} produkter`
+          : products.length === 1
+          ? `Hittade en produkt`
           : "Inga produkter hittades"}
       </h2>
       <ProductGrid products={products}></ProductGrid>

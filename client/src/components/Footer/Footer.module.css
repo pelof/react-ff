@@ -79,8 +79,8 @@
     display: block;
   }
 }
-/* Över 1294px */
-@media (min-width: 1295px) {
+/* Över 1024px */
+@media (min-width: 1024px) {
   .promise {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }

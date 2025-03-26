@@ -6,7 +6,7 @@ import { useEffect } from "react";
 
 const AdminLayout = () => {
   useEffect(() => {
-    document.title = "Admin";
+    document.title = "Administration";
   }, []);
   return (
     <>

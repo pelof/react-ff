@@ -37,7 +37,7 @@
     align-items: flex-end;
 }
 
-
+/* TODO radius */
 .shoppingCartTable {
     display: none;
     border: solid black 1px;

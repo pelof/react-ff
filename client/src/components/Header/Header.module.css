@@ -10,9 +10,6 @@
     color: black;
   }
 
-
-/* TODO: se till att i, a selektorer funkar för nya versionen */
-
 .headerContent {
     display: flex;
     flex-direction: column;
